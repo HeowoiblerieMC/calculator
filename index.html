@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Mathie Calculator</title>
+</head>
+<body>
+<h1>Mathie Calculator</h1>
+<input type="text" id="display">
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('+')">+</button>
+<button onclick="calculate()">=</button>
 
+<script>
+function add(value) {
+    document.getElementById("display").value += value;
+}
+
+function calculate() {
+    document.getElementById("display").value =
+        eval(document.getElementById("display").value);
+}
+</script>
+</body>
+</html>
