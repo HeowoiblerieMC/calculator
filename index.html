@@ -19,23 +19,23 @@ h1 {
 }
 
 #display {
-    width: 220px;
-    height: 50px;
-    font-size: 24px;
+    width: 260px;
+    height: 60px;
+    font-size: 28px;
     text-align: right;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    margin-bottom: 15px;
+    border-radius: 10px;
     border: none;
     padding-right: 10px;
 }
 
 button {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    margin: 2px;
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+    margin: 3px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #333;
     color: white;
     cursor: pointer;
@@ -60,9 +60,15 @@ button:hover {
 .clear:hover {
     background: #e57373;
 }
-</style>
 
+.footer {
+    margin-top: 25px;
+    color: gray;
+    font-size: 14px;
+}
+</style>
 </head>
+
 <body>
 
 <h1>Mathie Calculator</h1>
@@ -76,33 +82,40 @@ button:hover {
 <button onclick="add('9')">9</button>
 <button class="operator" onclick="add('/')">÷</button>
 
-<br><br>
+<br>
 
 <button onclick="add('4')">4</button>
 <button onclick="add('5')">5</button>
 <button onclick="add('6')">6</button>
 <button class="operator" onclick="add('*')">×</button>
 
-<br><br>
+<br>
 
 <button onclick="add('1')">1</button>
 <button onclick="add('2')">2</button>
 <button onclick="add('3')">3</button>
 <button class="operator" onclick="add('-')">−</button>
 
-<br><br>
+<br>
 
 <button onclick="add('0')">0</button>
 <button onclick="add('.')">.</button>
 <button onclick="calculate()">=</button>
 <button class="operator" onclick="add('+')">+</button>
 
-<br><br>
+<br>
 
 <button class="clear" onclick="clearDisplay()">C</button>
 <button onclick="backspace()">⌫</button>
+<button onclick="sqrt()">√</button>
+<button onclick="square()">x²</button>
+
+<br>
+
+<button onclick="percent()">%</button>
 
 <script>
+
 function add(value) {
     document.getElementById("display").value += value;
 }
@@ -125,6 +138,30 @@ function backspace() {
     display.value = display.value.slice(0, -1);
 }
 
+function sqrt() {
+    let display = document.getElementById("display");
+
+    if (display.value !== "") {
+        display.value = Math.sqrt(Number(display.value));
+    }
+}
+
+function square() {
+    let display = document.getElementById("display");
+
+    if (display.value !== "") {
+        display.value = Number(display.value) ** 2;
+    }
+}
+
+function percent() {
+    let display = document.getElementById("display");
+
+    if (display.value !== "") {
+        display.value = Number(display.value) / 100;
+    }
+}
+
 document.addEventListener("keydown", function(event) {
     const key = event.key;
 
@@ -144,7 +181,13 @@ document.addEventListener("keydown", function(event) {
         clearDisplay();
     }
 });
+
 </script>
+
+<div class="footer">
+    Mathie Calculator v3.0<br>
+    Made by 0605_内田
+</div>
 
 </body>
 </html>
