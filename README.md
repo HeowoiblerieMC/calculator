@@ -1,3 +1,3 @@
 # calculator
 
-this caluclator is made in HTML.
+this caluclator is made at HTML.
